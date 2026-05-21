@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Animated Login Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Font -->
+  <title>Animated Register Page</title>
+
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
+
     *{
       margin:0;
       padding:0;
@@ -21,71 +24,27 @@
       display:flex;
       justify-content:center;
       align-items:center;
-      background:linear-gradient(135deg,#4f46e5,#7c3aed);
+      background:#4c63ff;
       overflow:hidden;
     }
-
-    /* Animated Background Circles */
-
-    .circle{
-      position:absolute;
-      border-radius:50%;
-      background:rgba(255,255,255,0.1);
-      animation:float 6s infinite ease-in-out;
-    }
-
-    .circle:nth-child(1){
-      width:220px;
-      height:220px;
-      top:-60px;
-      left:-60px;
-    }
-
-    .circle:nth-child(2){
-      width:180px;
-      height:180px;
-      bottom:-40px;
-      right:-40px;
-      animation-delay:2s;
-    }
-
-    .circle:nth-child(3){
-      width:120px;
-      height:120px;
-      top:60%;
-      left:10%;
-      animation-delay:4s;
-    }
-
-    @keyframes float{
-      0%,100%{
-        transform:translateY(0px);
-      }
-      50%{
-        transform:translateY(-20px);
-      }
-    }
-
-    /* Login Container */
 
     .container{
       width:90%;
-      max-width:900px;
-      background:rgba(255,255,255,0.12);
-      backdrop-filter:blur(10px);
-      border:1px solid rgba(255,255,255,0.2);
+      max-width:1000px;
+      background:#4c63ff;
       border-radius:25px;
-      overflow:hidden;
       display:flex;
-      box-shadow:0 15px 35px rgba(0,0,0,0.2);
-      animation:fadeIn 1s ease;
-      z-index:10;
+      align-items:center;
+      justify-content:space-between;
+      padding:40px;
+      box-shadow:0 10px 40px rgba(0,0,0,0.2);
+      animation:fade 1s ease;
     }
 
-    @keyframes fadeIn{
+    @keyframes fade{
       from{
         opacity:0;
-        transform:translateY(30px);
+        transform:translateY(20px);
       }
       to{
         opacity:1;
@@ -93,157 +52,106 @@
       }
     }
 
-    /* Left Side */
-
     .left{
       flex:1;
-      background:rgba(255,255,255,0.05);
       display:flex;
       justify-content:center;
       align-items:center;
-      padding:20px;
     }
-
-    .left img{
-      width:100%;
-      max-width:320px;
-      animation:move 3s infinite ease-in-out;
-    }
-
-    @keyframes move{
-      0%,100%{
-        transform:translateY(0px);
-      }
-      50%{
-        transform:translateY(-15px);
-      }
-    }
-
-    /* Right Side */
 
     .right{
       flex:1;
-      padding:50px 40px;
       color:white;
+      padding:20px;
     }
 
     .right h1{
-      font-size:35px;
+      font-size:42px;
       margin-bottom:10px;
     }
 
     .right p{
-      margin-bottom:30px;
-      opacity:0.8;
+      margin-bottom:25px;
+      opacity:0.9;
     }
 
     .input-box{
       margin-bottom:20px;
-      position:relative;
     }
 
     .input-box input{
       width:100%;
-      padding:15px 20px;
+      padding:15px;
       border:none;
-      outline:none;
-      border-radius:12px;
+      border-radius:10px;
       font-size:16px;
-      background:rgba(255,255,255,0.2);
-      color:white;
-      transition:0.3s;
+      outline:none;
     }
 
-    .input-box input::placeholder{
-      color:#eee;
-    }
-
-    .input-box input:focus{
-      background:rgba(255,255,255,0.3);
-      transform:scale(1.02);
-    }
-
-    .login-btn{
+    .btn{
       width:100%;
       padding:15px;
       border:none;
-      border-radius:12px;
+      border-radius:10px;
       background:white;
-      color:#4f46e5;
-      font-size:17px;
+      color:#4c63ff;
+      font-size:18px;
       font-weight:600;
       cursor:pointer;
       transition:0.3s;
     }
 
-    .login-btn:hover{
-      transform:translateY(-3px);
-      background:#f1f1f1;
+    .btn:hover{
+      transform:scale(1.03);
     }
-
-    .bottom-text{
-      text-align:center;
-      margin-top:20px;
-      font-size:14px;
-    }
-
-    .bottom-text a{
-      color:#fff;
-      font-weight:600;
-      text-decoration:none;
-    }
-
-    /* Mobile Responsive */
 
     @media(max-width:768px){
 
       .container{
         flex-direction:column;
-      }
-
-      .left{
-        padding-top:30px;
-      }
-
-      .left img{
-        max-width:220px;
+        text-align:center;
       }
 
       .right{
-        padding:35px 25px;
+        width:100%;
       }
 
-      .right h1{
-        font-size:28px;
+      lottie-player{
+        width:250px !important;
+        height:250px !important;
       }
+
     }
 
   </style>
 </head>
+
 <body>
-
-  <!-- Background Animation -->
-
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-
-  <!-- Login Box -->
 
   <div class="container">
 
-    <!-- Left -->
-
     <div class="left">
-      <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" alt="">
-    </div>
 
-    <!-- Right -->
+      <lottie-player
+      src="https://assets10.lottiefiles.com/packages/lf20_kkflmtur.json"
+      background="transparent"
+      speed="1"
+      style="width:350px;height:350px;"
+      loop
+      autoplay>
+      </lottie-player>
+
+    </div>
 
     <div class="right">
 
-      <h1>Welcome Back 👋</h1>
-      <p>Login to continue your journey</p>
+      <h1>Register now</h1>
+
+      <p>Secure your spot in our upcoming live webinar</p>
+
+      <div class="input-box">
+        <input type="text" placeholder="What's your name?">
+      </div>
 
       <div class="input-box">
         <input type="email" placeholder="Enter Email">
@@ -253,14 +161,9 @@
         <input type="password" placeholder="Enter Password">
       </div>
 
-      <button class="login-btn">
-        Login
+      <button class="btn">
+        Register
       </button>
-
-      <div class="bottom-text">
-        Don't have an account?
-        <a href="#">Register</a>
-      </div>
 
     </div>
 
