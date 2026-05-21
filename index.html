@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Animated Login Page</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#4f46e5,#7c3aed);
+      overflow:hidden;
+    }
+
+    /* Animated Background Circles */
+
+    .circle{
+      position:absolute;
+      border-radius:50%;
+      background:rgba(255,255,255,0.1);
+      animation:float 6s infinite ease-in-out;
+    }
+
+    .circle:nth-child(1){
+      width:220px;
+      height:220px;
+      top:-60px;
+      left:-60px;
+    }
+
+    .circle:nth-child(2){
+      width:180px;
+      height:180px;
+      bottom:-40px;
+      right:-40px;
+      animation-delay:2s;
+    }
+
+    .circle:nth-child(3){
+      width:120px;
+      height:120px;
+      top:60%;
+      left:10%;
+      animation-delay:4s;
+    }
+
+    @keyframes float{
+      0%,100%{
+        transform:translateY(0px);
+      }
+      50%{
+        transform:translateY(-20px);
+      }
+    }
+
+    /* Login Container */
+
+    .container{
+      width:90%;
+      max-width:900px;
+      background:rgba(255,255,255,0.12);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.2);
+      border-radius:25px;
+      overflow:hidden;
+      display:flex;
+      box-shadow:0 15px 35px rgba(0,0,0,0.2);
+      animation:fadeIn 1s ease;
+      z-index:10;
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* Left Side */
+
+    .left{
+      flex:1;
+      background:rgba(255,255,255,0.05);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
+    }
+
+    .left img{
+      width:100%;
+      max-width:320px;
+      animation:move 3s infinite ease-in-out;
+    }
+
+    @keyframes move{
+      0%,100%{
+        transform:translateY(0px);
+      }
+      50%{
+        transform:translateY(-15px);
+      }
+    }
+
+    /* Right Side */
+
+    .right{
+      flex:1;
+      padding:50px 40px;
+      color:white;
+    }
+
+    .right h1{
+      font-size:35px;
+      margin-bottom:10px;
+    }
+
+    .right p{
+      margin-bottom:30px;
+      opacity:0.8;
+    }
+
+    .input-box{
+      margin-bottom:20px;
+      position:relative;
+    }
+
+    .input-box input{
+      width:100%;
+      padding:15px 20px;
+      border:none;
+      outline:none;
+      border-radius:12px;
+      font-size:16px;
+      background:rgba(255,255,255,0.2);
+      color:white;
+      transition:0.3s;
+    }
+
+    .input-box input::placeholder{
+      color:#eee;
+    }
+
+    .input-box input:focus{
+      background:rgba(255,255,255,0.3);
+      transform:scale(1.02);
+    }
+
+    .login-btn{
+      width:100%;
+      padding:15px;
+      border:none;
+      border-radius:12px;
+      background:white;
+      color:#4f46e5;
+      font-size:17px;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .login-btn:hover{
+      transform:translateY(-3px);
+      background:#f1f1f1;
+    }
+
+    .bottom-text{
+      text-align:center;
+      margin-top:20px;
+      font-size:14px;
+    }
+
+    .bottom-text a{
+      color:#fff;
+      font-weight:600;
+      text-decoration:none;
+    }
+
+    /* Mobile Responsive */
+
+    @media(max-width:768px){
+
+      .container{
+        flex-direction:column;
+      }
+
+      .left{
+        padding-top:30px;
+      }
+
+      .left img{
+        max-width:220px;
+      }
+
+      .right{
+        padding:35px 25px;
+      }
+
+      .right h1{
+        font-size:28px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Background Animation -->
+
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+
+  <!-- Login Box -->
+
+  <div class="container">
+
+    <!-- Left -->
+
+    <div class="left">
+      <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" alt="">
+    </div>
+
+    <!-- Right -->
+
+    <div class="right">
+
+      <h1>Welcome Back 👋</h1>
+      <p>Login to continue your journey</p>
+
+      <div class="input-box">
+        <input type="email" placeholder="Enter Email">
+      </div>
+
+      <div class="input-box">
+        <input type="password" placeholder="Enter Password">
+      </div>
+
+      <button class="login-btn">
+        Login
+      </button>
+
+      <div class="bottom-text">
+        Don't have an account?
+        <a href="#">Register</a>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
