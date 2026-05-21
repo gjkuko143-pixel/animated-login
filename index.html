@@ -1,173 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Animated Register Page</title>
+<title>Employee Login Portal</title>
 
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
-  <style>
+<style>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins',sans-serif;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
 
-    body{
-      height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      background:#4c63ff;
-      overflow:hidden;
-    }
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:
+linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+overflow:hidden;
+position:relative;
+}
 
-    .container{
-      width:90%;
-      max-width:1000px;
-      background:#4c63ff;
-      border-radius:25px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:40px;
-      box-shadow:0 10px 40px rgba(0,0,0,0.2);
-      animation:fade 1s ease;
-    }
+/* Animated Background */
 
-    @keyframes fade{
-      from{
-        opacity:0;
-        transform:translateY(20px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
+body::before{
+content:'';
+position:absolute;
+width:500px;
+height:500px;
+background:rgba(255,255,255,0.05);
+border-radius:50%;
+top:-150px;
+left:-150px;
+animation:float 8s infinite ease-in-out;
+}
 
-    .left{
-      flex:1;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-    }
+body::after{
+content:'';
+position:absolute;
+width:400px;
+height:400px;
+background:rgba(255,255,255,0.04);
+border-radius:50%;
+bottom:-120px;
+right:-120px;
+animation:float 10s infinite ease-in-out;
+}
 
-    .right{
-      flex:1;
-      color:white;
-      padding:20px;
-    }
+@keyframes float{
+0%,100%{
+transform:translateY(0px);
+}
+50%{
+transform:translateY(-25px);
+}
+}
 
-    .right h1{
-      font-size:42px;
-      margin-bottom:10px;
-    }
+/* Main Container */
 
-    .right p{
-      margin-bottom:25px;
-      opacity:0.9;
-    }
+.container{
+width:90%;
+max-width:1100px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,0.15);
+border-radius:30px;
+padding:40px;
+box-shadow:0 20px 50px rgba(0,0,0,0.3);
+z-index:10;
+animation:fadeIn 1s ease;
+}
 
-    .input-box{
-      margin-bottom:20px;
-    }
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
 
-    .input-box input{
-      width:100%;
-      padding:15px;
-      border:none;
-      border-radius:10px;
-      font-size:16px;
-      outline:none;
-    }
+/* Left Side */
 
-    .btn{
-      width:100%;
-      padding:15px;
-      border:none;
-      border-radius:10px;
-      background:white;
-      color:#4c63ff;
-      font-size:18px;
-      font-weight:600;
-      cursor:pointer;
-      transition:0.3s;
-    }
+.left{
+flex:1;
+display:flex;
+justify-content:center;
+align-items:center;
+}
 
-    .btn:hover{
-      transform:scale(1.03);
-    }
+.left lottie-player{
+width:420px;
+height:420px;
+}
 
-    @media(max-width:768px){
+/* Right Side */
 
-      .container{
-        flex-direction:column;
-        text-align:center;
-      }
+.right{
+flex:1;
+padding:20px;
+color:white;
+}
 
-      .right{
-        width:100%;
-      }
+.logo{
+font-size:18px;
+font-weight:600;
+margin-bottom:15px;
+opacity:0.9;
+}
 
-      lottie-player{
-        width:250px !important;
-        height:250px !important;
-      }
+.right h1{
+font-size:42px;
+margin-bottom:10px;
+font-weight:700;
+}
 
-    }
+.right p{
+margin-bottom:30px;
+opacity:0.85;
+line-height:1.6;
+}
 
-  </style>
+/* Inputs */
+
+.input-box{
+margin-bottom:20px;
+position:relative;
+}
+
+.input-box input{
+width:100%;
+padding:16px 18px;
+border:none;
+outline:none;
+border-radius:14px;
+background:rgba(255,255,255,0.12);
+color:white;
+font-size:16px;
+transition:0.3s;
+border:1px solid transparent;
+}
+
+.input-box input::placeholder{
+color:#dbeafe;
+}
+
+.input-box input:focus{
+border:1px solid #93c5fd;
+background:rgba(255,255,255,0.18);
+transform:scale(1.02);
+}
+
+/* Button */
+
+.login-btn{
+width:100%;
+padding:16px;
+border:none;
+border-radius:14px;
+background:white;
+color:#1e3a8a;
+font-size:17px;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.login-btn:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 25px rgba(255,255,255,0.2);
+}
+
+/* Bottom */
+
+.bottom-text{
+margin-top:18px;
+text-align:center;
+font-size:14px;
+opacity:0.9;
+}
+
+.bottom-text a{
+color:#bfdbfe;
+text-decoration:none;
+font-weight:600;
+}
+
+/* Mobile Responsive */
+
+@media(max-width:900px){
+
+.container{
+flex-direction:column;
+text-align:center;
+padding:30px 20px;
+}
+
+.left lottie-player{
+width:280px;
+height:280px;
+}
+
+.right h1{
+font-size:32px;
+}
+
+.right{
+width:100%;
+}
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <div class="left">
+<div class="left">
 
-      <lottie-player
-      src="https://assets10.lottiefiles.com/packages/lf20_kkflmtur.json"
-      background="transparent"
-      speed="1"
-      style="width:350px;height:350px;"
-      loop
-      autoplay>
-      </lottie-player>
+<lottie-player
+src="https://assets1.lottiefiles.com/packages/lf20_gjmecwii.json"
+background="transparent"
+speed="1"
+loop
+autoplay>
+</lottie-player>
 
-    </div>
+</div>
 
-    <div class="right">
+<div class="right">
 
-      <h1>Register now</h1>
+<div class="logo">
+🏢 Employee Portal
+</div>
 
-      <p>Secure your spot in our upcoming live webinar</p>
+<h1>Welcome Back</h1>
 
-      <div class="input-box">
-        <input type="text" placeholder="What's your name?">
-      </div>
+<p>
+Secure employee access system for company staff and internal resources.
+</p>
 
-      <div class="input-box">
-        <input type="email" placeholder="Enter Email">
-      </div>
+<div class="input-box">
+<input type="email" placeholder="Employee Email">
+</div>
 
-      <div class="input-box">
-        <input type="password" placeholder="Enter Password">
-      </div>
+<div class="input-box">
+<input type="password" placeholder="Password">
+</div>
 
-      <button class="btn">
-        Register
-      </button>
+<button class="login-btn">
+Login to Dashboard
+</button>
 
-    </div>
+<div class="bottom-text">
+Need help? <a href="#">Contact HR Support</a>
+</div>
 
-  </div>
+</div>
+
+</div>
 
 </body>
 </html>
